@@ -88,7 +88,7 @@ class GenericSelenium:
 		self.username = username
 		self.password = password
 		
-	# Manipulador do histório de operação
+	# Operation History Handler
 	def _manipule_data_fields(self, key, value):
 		if key in self.__data_fields.keys():
 			self.__data_fields[key]["last"] = self.__data_fields[key]["actual"]
@@ -104,7 +104,9 @@ class GenericSelenium:
 
 	def _update_process(self, process):
 		self._manipule_data_fields("process", process)
-
+	
+	# Thanks for Marlon Abeykoon and jmlarson for the help in StackOverflow.
+	# url: https://stackoverflow.com/a/39327156/12294698
 	def _getNewestFile(self, dirPath):
 		dirPath = os.path.abspath(dirPath)
 		assert os.path.isdir(dirPath), "[GenericSelenium | _getNewestFile] The dir path must be a directory path."
@@ -124,7 +126,8 @@ class GenericSelenium:
 			raise Exception("[GenericSelenium | _moveFile] The to path file is invalid.")
 
 		os.rename(pFrom, pTo)
-
+	
+	# Thanks for Marcelo Betiati for the help with js script
 	def _saveSourceAsPDF(self, url, outputPath = None):
 		script = """
 			var retornoJavascript = arguments[0];
@@ -155,8 +158,8 @@ class GenericSelenium:
 		with open(outputPath, "wb") as f:
 			f.write(base64.b64decode(pdfFile))
 			f.close()
-	3
-	#Operadores web
+	
+	# web operators
 	def _oWaitSendKeys(self, element, text, waitTime=0, regexFormat=None):
 		print("\n\n _oWaitSendKeys")
 		element.clear()
