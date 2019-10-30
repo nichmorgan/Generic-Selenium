@@ -152,7 +152,7 @@ class GenericSelenium:
 		pdfFile = self.driver.execute_async_script(script)
 
 		if outputPath is None:
-			outputPath = self.downloadFolder
+			outputPath = os.path.join(self.downloadFolder, "file.pdf")
 
 		assert not os.path.isdir(outputPath) and os.path.isdir(os.path.dirname(outputPath)), "[GenericSelenium | _saveSourceAsPDF] Output path is invalid."
 		with open(outputPath, "wb") as f:
