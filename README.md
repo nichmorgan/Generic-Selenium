@@ -1,4 +1,4 @@
-# Generic-Selenium
+# Generic-Selenium (under development)
 Generic class for selenium web automation in python dedicated to providing efficient optimizations for diverse use in web automation.
 
 ## Class Call
